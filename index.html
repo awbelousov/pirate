@@ -143,6 +143,30 @@ canvas {
   </div>
 </div>
 <div id="game" class="game"></div>
+<script>
+  window.addEventListener('load', function() {
+ 
+    var user_id = null;   // id пользователя
+    var app_id = 7180153;  // id вашего приложения
+ 
+    admanInit({
+      user_id: user_id,
+      app_id: 7180153,
+      mobile: true,
+      type: 'preloader' ,			// 'preloader' или 'rewarded' (по умолчанию - 'preloader')
+      params: {preview: 1}   // для проверки корректности работы рекламы
+    }, onAdsReady, onNoAds);
+ 
+    function onAdsReady(adman) {
+      adman.onStarted(function () {});
+      adman.onCompleted(function() {});
+      adman.onSkipped(function() {});      
+      adman.onClicked(function() {}); 
+      adman.start('preroll');
+    };
+    function onNoAds() {};
+  });
+</script>
 <script src="corsairs.js"></script>
 </body>
 </html>
